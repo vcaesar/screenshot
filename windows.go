@@ -4,10 +4,11 @@ package screenshot
 
 import (
 	"errors"
-	"github.com/lxn/win"
 	"image"
 	"syscall"
 	"unsafe"
+
+	"github.com/tailscale/win"
 )
 
 var (
