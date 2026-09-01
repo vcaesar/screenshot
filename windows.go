@@ -112,9 +112,7 @@ func enumDisplayMonitors(hdc win.HDC, lprcClip *win.RECT, lpfnEnum uintptr, dwDa
 	return int(ret) != 0
 }
 
-func countupMonitorCallback(hMonitor win.HMONITOR, hdcMonitor win.HDC, lprcMonitor *win.RECT, dwData uintptr) uintptr {
-	var count *int
-	count = (*int)(unsafe.Pointer(dwData))
+func countupMonitorCallback(hMonitor win.HMONITOR, hdcMonitor win.HDC, lprcMonitor *win.RECT, count *int) uintptr {
 	*count = *count + 1
 	return uintptr(1)
 }
@@ -125,9 +123,7 @@ type getMonitorBoundsContext struct {
 	Count int
 }
 
-func getMonitorBoundsCallback(hMonitor win.HMONITOR, hdcMonitor win.HDC, lprcMonitor *win.RECT, dwData uintptr) uintptr {
-	var ctx *getMonitorBoundsContext
-	ctx = (*getMonitorBoundsContext)(unsafe.Pointer(dwData))
+func getMonitorBoundsCallback(hMonitor win.HMONITOR, hdcMonitor win.HDC, lprcMonitor *win.RECT, ctx *getMonitorBoundsContext) uintptr {
 	if ctx.Count != ctx.Index {
 		ctx.Count = ctx.Count + 1
 		return uintptr(1)
