@@ -1,4 +1,4 @@
-//go:build s390x || ppc64le || (!(cgo && darwin) && !windows && !linux && !freebsd && !openbsd && !netbsd)
+//go:build s390x || ppc64le || (!(cgo && darwin) && !(purego && darwin) && !windows && !linux && !freebsd && !openbsd && !netbsd)
 
 package screenshot
 

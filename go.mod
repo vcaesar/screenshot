@@ -3,6 +3,7 @@ module github.com/vcaesar/screenshot
 go 1.26.0
 
 require (
+	github.com/ebitengine/purego v0.11.1
 	github.com/gen2brain/shm v0.2.2
 	github.com/godbus/dbus/v5 v5.2.2
 	github.com/jezek/xgb v1.3.1
